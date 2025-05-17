@@ -13,6 +13,223 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
+      // Xử lý tương tác cho trang tạo học bổng
+    const createScholarshipForm = document.getElementById('create-scholarship-form');
+    if (createScholarshipForm) {
+      // Xử lý chuyển đổi giữa các bước
+      const steps = ['step-1', 'step-2', 'step-3', 'step-4'];
+      let currentStep = 0;
+      
+      const nextStepBtn = document.getElementById('next-step');
+      const prevStepBtn = document.getElementById('prev-step');
+      const submitFormBtn = document.getElementById('submit-form');
+      
+      // Cập nhật hiển thị bước hiện tại
+      function updateStepDisplay() {
+        steps.forEach((step, index) => {
+          document.getElementById(step).style.display = index === currentStep ? 'block' : 'none';
+        });
+        
+        // Cập nhật các nút điều hướng
+        prevStepBtn.style.display = currentStep > 0 ? 'block' : 'none';
+        nextStepBtn.style.display = currentStep < steps.length - 1 ? 'block' : 'none';
+        submitFormBtn.style.display = currentStep === steps.length - 1 ? 'block' : 'none';
+        
+        // Cập nhật trạng thái các bước
+        document.querySelectorAll('.step').forEach((step, index) => {
+          step.classList.remove('active', 'completed');
+          if (index === currentStep) {
+            step.classList.add('active');
+          } else if (index < currentStep) {
+            step.classList.add('completed');
+          }
+        });
+        
+        // Cập nhật tiến trình
+        const completion = Math.round((currentStep + 1) / steps.length * 100);
+        document.getElementById('preview-completion').textContent = completion;
+        document.querySelector('.preview-card .preview-body div[style^="width: "].background').style.width = `${completion}%`;
+      }
+      
+      // Chuyển đến bước tiếp theo
+      nextStepBtn.addEventListener('click', () => {
+        if (currentStep < steps.length - 1) {
+          currentStep++;
+          updateStepDisplay();
+        }
+      });
+      
+      // Quay lại bước trước
+      prevStepBtn.addEventListener('click', () => {
+        if (currentStep > 0) {
+          currentStep--;
+          updateStepDisplay();
+        }
+      });
+      
+      // Xử lý khi gửi form
+      submitFormBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('.preview-scholarship .success-animation').style.display = 'flex';
+        document.getElementById('navigation-buttons').style.display = 'none';
+      });
+      
+      // Xử lý chọn loại học bổng
+      document.querySelectorAll('.scholarship-type-option').forEach(option => {
+        option.addEventListener('click', function() {
+          // Bỏ chọn tất cả các lựa chọn
+          document.querySelectorAll('.scholarship-type-option').forEach(opt => {
+            opt.classList.remove('selected');
+          });
+          
+          // Chọn lựa chọn hiện tại
+          this.classList.add('selected');
+          
+          // Cập nhật xem trước
+          const scholarshipType = this.querySelector('h4').textContent;
+          document.getElementById('preview-type').textContent = scholarshipType;
+        });
+      });
+      
+      // Cập nhật xem trước khi thay đổi các trường
+      document.getElementById('scholarship-name').addEventListener('input', function() {
+        document.getElementById('preview-name').textContent = this.value || '--';
+      });
+      
+      document.getElementById('amount').addEventListener('input', function() {
+        document.getElementById('preview-amount').textContent = this.value ? 
+          new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(this.value) : 
+          '--';
+      });
+      
+      document.getElementById('slots').addEventListener('input', function() {
+        document.getElementById('preview-slots').textContent = this.value || '--';
+      });
+      
+      document.getElementById('deadline').addEventListener('input', function() {
+        if (this.value) {
+          const date = new Date(this.value);
+          document.getElementById('preview-deadline').textContent = date.toLocaleDateString('vi-VN');
+        } else {
+          document.getElementById('preview-deadline').textContent = '--';
+        }
+      });
+      
+      // Xử lý tải lên tệp
+      document.querySelector('.file-upload').addEventListener('click', function() {
+        document.getElementById('template-files').click();
+      });
+      
+      // Xử lý kéo và thả tệp
+      const fileUpload = document.querySelector('.file-upload');
+      
+      ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        fileUpload.addEventListener(eventName, preventDefaults, false);
+      });
+      
+      function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      
+      ['dragenter', 'dragover'].forEach(eventName => {
+        fileUpload.addEventListener(eventName, highlight, false);
+      });
+      
+      ['dragleave', 'drop'].forEach(eventName => {
+        fileUpload.addEventListener(eventName, unhighlight, false);
+      });
+      
+      function highlight() {
+        fileUpload.classList.add('highlight');
+      }
+      
+      function unhighlight() {
+        fileUpload.classList.remove('highlight');
+      }
+      
+      // Xử lý sự kiện xóa tệp đã tải lên
+      document.querySelectorAll('.file-actions .delete').forEach(btn => {
+        btn.addEventListener('click', function() {
+          if (confirm('Bạn có chắc chắn muốn xóa tệp này?')) {
+            this.closest('.uploaded-file').remove();
+          }
+        });
+      });
+    }
+    
+    // Xử lý tương tác cho trang duyệt hồ sơ
+    const reviewPage = document.querySelector('.review-dashboard');
+    if (reviewPage) {
+      // Xử lý các sự kiện nút nhấn trong bảng
+      document.querySelectorAll('.btn-action').forEach(button => {
+        button.addEventListener('click', function() {
+          if (this.classList.contains('btn-view')) {
+            // Hiển thị modal chi tiết
+            const modalId = this.getAttribute('data-modal');
+            document.getElementById(modalId).classList.add('show');
+          } else if (this.classList.contains('btn-approve')) {
+            if (confirm('Bạn có chắc chắn muốn phê duyệt hồ sơ này?')) {
+              // Thay đổi trạng thái hàng thành "đã duyệt"
+              const row = this.closest('tr');
+              const statusCell = row.querySelector('.status-badge');
+              statusCell.className = 'status-badge status-approved';
+              statusCell.textContent = 'Đã duyệt';
+              
+              // Cập nhật nút
+              const actionButtons = row.querySelector('.action-buttons');
+              actionButtons.innerHTML = '<button class="btn-action btn-view" data-modal="profile-modal"><i class="fas fa-eye"></i></button>';
+              
+              // Thêm lại event listener cho nút mới
+              actionButtons.querySelector('.btn-view').addEventListener('click', function() {
+                const modalId = this.getAttribute('data-modal');
+                document.getElementById(modalId).classList.add('show');
+              });
+            }
+          } else if (this.classList.contains('btn-reject')) {
+            if (confirm('Bạn có chắc chắn muốn từ chối hồ sơ này?')) {
+              // Thay đổi trạng thái hàng thành "từ chối"
+              const row = this.closest('tr');
+              const statusCell = row.querySelector('.status-badge');
+              statusCell.className = 'status-badge status-rejected';
+              statusCell.textContent = 'Từ chối';
+              
+              // Cập nhật nút
+              const actionButtons = row.querySelector('.action-buttons');
+              actionButtons.innerHTML = '<button class="btn-action btn-view" data-modal="profile-modal"><i class="fas fa-eye"></i></button>';
+              
+              // Thêm lại event listener cho nút mới
+              actionButtons.querySelector('.btn-view').addEventListener('click', function() {
+                const modalId = this.getAttribute('data-modal');
+                document.getElementById(modalId).classList.add('show');
+              });
+            }
+          }
+        });
+      });
+      
+      // Xử lý bộ lọc
+      document.querySelector('.filters-section button').addEventListener('click', function() {
+        alert('Đã áp dụng bộ lọc!');
+        // Trong trường hợp thực tế, ở đây sẽ gọi API để lọc dữ liệu
+      });
+      
+      // Xử lý phân trang
+      document.querySelectorAll('.pagination button').forEach(button => {
+        button.addEventListener('click', function() {
+          document.querySelectorAll('.pagination button').forEach(btn => {
+            btn.classList.remove('active');
+          });
+          if (!this.classList.contains('fa-angle-double-left') && 
+              !this.classList.contains('fa-angle-left') &&
+              !this.classList.contains('fa-angle-right') &&
+              !this.classList.contains('fa-angle-double-right')) {
+            this.classList.add('active');
+          }
+          // Trong trường hợp thực tế, ở đây sẽ gọi API để lấy dữ liệu trang mới
+        });
+      });
+    }
     // 2. Mở modal "Quên mật khẩu"
     const forgotLink = document.getElementById('forgot-password');
     if (forgotLink) {

@@ -28,55 +28,402 @@
         <span class="navbar-lang"><a href="#">Tiếng Việt</a> | <a href="#">English</a></span>
       </div>
     </nav>
-  </header>
+  </header>  <div class="create-scholarship">
+    <div class="create-form-header">
+      <h2>Tạo học bổng mới</h2>
+      <button class="btn-outline"><i class="fas fa-save"></i> Lưu nháp</button>
+    </div>
+    
+    <div class="form-steps">
+      <div class="step active">
+        <div class="step-number">1</div>
+        <div class="step-label">Thông tin cơ bản</div>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-label">Tiêu chí & Yêu cầu</div>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-label">Tài liệu & Tệp đính kèm</div>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-label">Xem trước & Hoàn tất</div>
+      </div>
+    </div>
 
-  <div class="container">
-    <h2>Tạo học bổng mới</h2>
-    <form class="validate-form" action="#" method="POST">
-      <div class="form-group">
-        <label for="scholarship-name">Tên học bổng</label>
-        <input type="text" id="scholarship-name" name="scholarship-name" required placeholder="Nhập tên học bổng">
+    <form class="validate-form" action="#" method="POST" id="create-scholarship-form">
+      <div class="form-content-wrapper" style="display: flex; gap: 2rem;">
+        <div style="flex: 3;">
+          <!-- Thông tin cơ bản -->
+          <div class="form-section" id="step-1">
+            <h3>Thông tin cơ bản học bổng</h3>
+            
+            <div class="scholarship-type-options">
+              <div class="scholarship-type-option" data-type="khuyen-khich">
+                <i class="fas fa-graduation-cap"></i>
+                <h4>Học bổng khuyến khích</h4>
+                <p>Dành cho sinh viên có thành tích học tập tốt</p>
+              </div>
+              <div class="scholarship-type-option" data-type="vuot-kho">
+                <i class="fas fa-hands-helping"></i>
+                <h4>Học bổng vượt khó</h4>
+                <p>Hỗ trợ sinh viên có hoàn cảnh khó khăn</p>
+              </div>
+              <div class="scholarship-type-option" data-type="doanh-nghiep">
+                <i class="fas fa-building"></i>
+                <h4>Học bổng doanh nghiệp</h4>
+                <p>Tài trợ từ các doanh nghiệp, tổ chức</p>
+              </div>
+              <div class="scholarship-type-option" data-type="nghien-cuu">
+                <i class="fas fa-flask"></i>
+                <h4>Học bổng nghiên cứu</h4>
+                <p>Dành cho sinh viên tham gia nghiên cứu khoa học</p>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="scholarship-name">Tên học bổng <span style="color: red">*</span></label>
+                <input type="text" id="scholarship-name" name="scholarship-name" required placeholder="Nhập tên học bổng">
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="description">Mô tả ngắn <span style="color: red">*</span></label>
+                <textarea id="description" name="description" rows="2" placeholder="Mô tả ngắn về học bổng"></textarea>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="full-description">Mô tả chi tiết</label>
+                <textarea id="full-description" name="full-description" rows="5" placeholder="Mô tả chi tiết về học bổng, mục đích và lợi ích"></textarea>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group input-with-icon">
+                <label for="amount">Giá trị học bổng (VND) <span style="color: red">*</span></label>
+                <i class="fas fa-money-bill-wave"></i>
+                <input type="number" id="amount" name="amount" required placeholder="Nhập giá trị học bổng">
+              </div>
+              <div class="form-group input-with-icon">
+                <label for="slots">Số suất học bổng <span style="color: red">*</span></label>
+                <i class="fas fa-users"></i>
+                <input type="number" id="slots" name="slots" required placeholder="Nhập số suất học bổng">
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="start-date">Ngày bắt đầu <span style="color: red">*</span></label>
+                <input type="date" id="start-date" name="start-date" required>
+              </div>
+              <div class="form-group">
+                <label for="deadline">Hạn nộp <span style="color: red">*</span></label>
+                <input type="date" id="deadline" name="deadline" required>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="sponsor">Nhà tài trợ</label>
+                <input type="text" id="sponsor" name="sponsor" placeholder="Tên cá nhân hoặc tổ chức tài trợ">
+              </div>
+              <div class="form-group">
+                <label for="sponsor-logo">Logo nhà tài trợ</label>
+                <input type="file" id="sponsor-logo" name="sponsor-logo" accept="image/*">
+                <div class="form-hint">Chấp nhận định dạng JPG, PNG hoặc SVG, tối đa 2MB</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bước 2: Tiêu chí & Yêu cầu -->
+          <div class="form-section" id="step-2" style="display: none;">
+            <h3>Tiêu chí & Yêu cầu</h3>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label>Đối tượng sinh viên <span style="color: red">*</span></label>
+                <div class="checkbox-group">
+                  <label><input type="checkbox" name="target-year" value="1"> Năm nhất</label>
+                  <label><input type="checkbox" name="target-year" value="2"> Năm hai</label>
+                  <label><input type="checkbox" name="target-year" value="3"> Năm ba</label>
+                  <label><input type="checkbox" name="target-year" value="4"> Năm bốn</label>
+                  <label><input type="checkbox" name="target-year" value="5"> Sau đại học</label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label>Khoa đào tạo</label>
+                <div class="checkbox-group">
+                  <label><input type="checkbox" name="faculty" value="cntt"> Công nghệ thông tin</label>
+                  <label><input type="checkbox" name="faculty" value="ck"> Cơ khí</label>
+                  <label><input type="checkbox" name="faculty" value="d"> Điện</label>
+                  <label><input type="checkbox" name="faculty" value="dt"> Điện tử</label>
+                  <label><input type="checkbox" name="faculty" value="xd"> Xây dựng</label>
+                  <label><input type="checkbox" name="faculty" value="all"> Tất cả các khoa</label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="min-gpa">Điểm trung bình tối thiểu</label>
+                <input type="number" id="min-gpa" name="min-gpa" step="0.1" min="0" max="4" placeholder="Nhập điểm trung bình tối thiểu (thang 4)">
+              </div>
+              <div class="form-group">
+                <label for="conduct-level">Xếp loại rèn luyện</label>
+                <select id="conduct-level" name="conduct-level">
+                  <option value="">-- Chọn xếp loại --</option>
+                  <option value="excellent">Xuất sắc</option>
+                  <option value="good">Tốt</option>
+                  <option value="fair">Khá</option>
+                  <option value="average">Trung bình</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="additional-criteria">Tiêu chí bổ sung</label>
+                <textarea id="additional-criteria" name="additional-criteria" rows="4" placeholder="Nhập các tiêu chí đánh giá bổ sung"></textarea>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bước 3: Tài liệu & Tệp đính kèm -->
+          <div class="form-section" id="step-3" style="display: none;">
+            <h3>Tài liệu & Tệp đính kèm</h3>
+            
+            <div class="form-row">
+              <div class="form-group" style="width: 100%;">
+                <label>Tài liệu yêu cầu</label>
+                <div class="checkbox-group">
+                  <label><input type="checkbox" name="required-docs" value="transcript"> Bảng điểm</label>
+                  <label><input type="checkbox" name="required-docs" value="letter"> Thư giới thiệu</label>
+                  <label><input type="checkbox" name="required-docs" value="cv"> CV/Sơ yếu lý lịch</label>
+                  <label><input type="checkbox" name="required-docs" value="certificate"> Chứng chỉ thành tích</label>
+                  <label><input type="checkbox" name="required-docs" value="financial"> Chứng minh hoàn cảnh</label>
+                  <label><input type="checkbox" name="required-docs" value="research"> Đề cương nghiên cứu</label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group" style="width: 100%;">
+                <label>Tải lên tài liệu mẫu (nếu có)</label>
+                <div class="file-upload">
+                  <input type="file" id="template-files" name="template-files" multiple>
+                  <i class="fas fa-cloud-upload-alt"></i>
+                  <p>Kéo và thả các tệp vào đây hoặc <strong>nhấp để chọn tệp</strong></p>
+                  <span style="font-size: 0.9rem; color: #666;">Tối đa 10 tệp, mỗi tệp không quá 5MB</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="uploaded-files">
+              <div class="uploaded-file">
+                <div class="file-icon">
+                  <i class="fas fa-file-word"></i>
+                </div>
+                <div class="file-info">
+                  <p>Don_xin_hoc_bong.docx</p>
+                  <span class="file-size">32 KB</span>
+                </div>
+                <div class="file-actions">
+                  <button type="button"><i class="fas fa-eye"></i></button>
+                  <button type="button" class="delete"><i class="fas fa-trash"></i></button>
+                </div>
+              </div>
+              <div class="uploaded-file">
+                <div class="file-icon">
+                  <i class="fas fa-file-pdf"></i>
+                </div>
+                <div class="file-info">
+                  <p>Mau_thu_gioi_thieu.pdf</p>
+                  <span class="file-size">215 KB</span>
+                </div>
+                <div class="file-actions">
+                  <button type="button"><i class="fas fa-eye"></i></button>
+                  <button type="button" class="delete"><i class="fas fa-trash"></i></button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-row" style="margin-top: 2rem;">
+              <div class="form-group" style="width: 100%;">
+                <label for="additional-notes">Ghi chú bổ sung</label>
+                <textarea id="additional-notes" name="additional-notes" rows="3" placeholder="Nhập các ghi chú hoặc hướng dẫn bổ sung cho ứng viên"></textarea>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bước 4: Xem trước và hoàn tất -->
+          <div class="form-section" id="step-4" style="display: none;">
+            <h3>Xem trước và hoàn tất</h3>
+            
+            <div class="preview-scholarship">
+              <div style="background: #f9f9f9; padding: 2rem; border-radius: 10px; margin-bottom: 2rem;">
+                <h4 style="margin-top: 0; color: var(--primary-color);">Học bổng khuyến khích học tập 2025</h4>
+                <p><strong>Loại:</strong> Học bổng khuyến khích</p>
+                <p><strong>Giá trị:</strong> 5.000.000 VND</p>
+                <p><strong>Số suất:</strong> 10</p>
+                <p><strong>Thời hạn:</strong> 30/06/2025</p>
+                <p><strong>Nhà tài trợ:</strong> Trường Đại học Sư phạm Kỹ thuật Đà Nẵng</p>
+                <p style="margin-bottom: 0;"><strong>Đối tượng:</strong> Sinh viên năm 2, 3, 4 thuộc khoa CNTT</p>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group" style="width: 100%;">
+                  <label>Cài đặt hiển thị</label>
+                  <div class="checkbox-group">
+                    <label><input type="checkbox" name="display-options" value="featured" checked> Hiển thị nổi bật trên trang chủ</label>
+                    <label><input type="checkbox" name="display-options" value="notify" checked> Gửi thông báo cho sinh viên phù hợp</label>
+                    <label><input type="checkbox" name="display-options" value="public" checked> Hiển thị công khai</label>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group" style="width: 100%;">
+                  <label for="publish-date">Ngày công bố</label>
+                  <input type="date" id="publish-date" name="publish-date">
+                </div>
+              </div>
+              
+              <div class="success-animation" style="display: none;">
+                <div class="success-icon">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="success-text">
+                  <h3>Tạo học bổng thành công!</h3>
+                  <p>Học bổng của bạn đã được tạo và sẽ được công bố theo lịch trình đã chọn.</p>
+                </div>
+                <div class="success-buttons">
+                  <a href="review.html" class="btn-primary">Xem danh sách học bổng</a>
+                  <button type="button" class="btn-outline">Tạo học bổng mới</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Điều hướng giữa các bước -->
+          <div class="form-buttons" id="navigation-buttons">
+            <button type="button" id="prev-step" class="btn-outline" style="display: none;"><i class="fas fa-arrow-left"></i> Quay lại</button>
+            <button type="button" id="next-step" class="btn-primary">Tiếp theo <i class="fas fa-arrow-right"></i></button>
+            <button type="submit" id="submit-form" class="btn-primary" style="display: none;">Tạo học bổng</button>
+          </div>
+        </div>
+        
+        <!-- Xem trước bên phải -->
+        <div style="flex: 1;">
+          <div class="preview-card">
+            <div class="preview-header">
+              <h3>Xem trước</h3>
+              <p>Thông tin học bổng của bạn</p>
+            </div>
+            <div class="preview-body">
+              <div class="preview-item">
+                <div class="preview-label">Loại học bổng</div>
+                <div class="preview-value" id="preview-type">Chưa chọn</div>
+              </div>
+              <div class="preview-item">
+                <div class="preview-label">Tên học bổng</div>
+                <div class="preview-value" id="preview-name">--</div>
+              </div>
+              <div class="preview-item">
+                <div class="preview-label">Giá trị</div>
+                <div class="preview-value" id="preview-amount">--</div>
+              </div>
+              <div class="preview-item">
+                <div class="preview-label">Số suất</div>
+                <div class="preview-value" id="preview-slots">--</div>
+              </div>
+              <div class="preview-item">
+                <div class="preview-label">Thời hạn</div>
+                <div class="preview-value" id="preview-deadline">--</div>
+              </div>
+              <div class="preview-item">
+                <div class="preview-label">Đã hoàn thành</div>
+                <div class="preview-value"><span id="preview-completion">25</span>%</div>
+              </div>
+              <div style="width: 100%; background: #eee; height: 6px; border-radius: 3px; margin-top: 1rem;">
+                <div style="width: 25%; background: var(--primary-color); height: 6px; border-radius: 3px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="description">Mô tả</label>
-        <textarea id="description" name="description" rows="3" placeholder="Mô tả học bổng"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="amount">Giá trị học bổng</label>
-        <input type="number" id="amount" name="amount" required placeholder="Nhập giá trị">
-      </div>
-      <div class="form-group">
-        <label for="slots">Số suất</label>
-        <input type="number" id="slots" name="slots" required placeholder="Nhập số suất">
-      </div>
-      <div class="form-group">
-        <label for="target">Đối tượng áp dụng</label>
-        <input type="text" id="target" name="target" required placeholder="Nhập đối tượng">
-      </div>
-      <div class="form-group">
-        <label for="deadline">Hạn nộp</label>
-        <input type="date" id="deadline" name="deadline" required>
-      </div>
-      <!-- Thông tin sinh viên nếu cần -->
-      <div class="form-group">
-        <label for="student-id-create">Mã sinh viên</label>
-        <input type="text" id="student-id-create" name="student-id-create" placeholder="Nhập mã SV">
-      </div>
-      <div class="form-group">
-        <label for="email-create">Email</label>
-        <input type="email" id="email-create" name="email-create" placeholder="Nhập email">
-      </div>
-      <div class="form-group">
-        <label for="phone-create">Số điện thoại</label>
-        <input type="text" id="phone-create" name="phone-create" placeholder="Nhập số điện thoại">
-      </div>
-      <div class="form-group">
-        <label for="dob-create">Ngày sinh</label>
-        <input type="date" id="dob-create" name="dob-create">
-      </div>
-      <button type="submit" class="btn">Lưu học bổng</button>
     </form>
   </div>
+  
+  <!-- Footer -->
+  <footer>
+    <!-- Floating Images -->
+    <img src="../images/floating-05.webp" alt="Graduate" class="floating-img floating-img-1">
+    <img src="../images/floating-06.webp" alt="Student" class="floating-img floating-img-2">
+    <img src="../images/floating-07.webp" alt="Certificate" class="floating-img floating-img-3">
+    <img src="../images/floating-08.webp" alt="Document" class="floating-img floating-img-4">
+    
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Về Chúng Tôi</h3>
+          <p>UTE Scholarship Portal là hệ thống quản lý học bổng hiện đại của Trường Đại học Sư phạm Kỹ thuật Đà Nẵng, giúp sinh viên dễ dàng tiếp cận và đăng ký các chương trình học bổng.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Liên Kết Nhanh</h3>
+          <ul>
+            <li><a href="login.html"><i class="fas fa-angle-right"></i> Đăng nhập</a></li>
+            <li><a href="register.html"><i class="fas fa-angle-right"></i> Đăng ký học bổng</a></li>
+            <li><a href="review.html"><i class="fas fa-angle-right"></i> Duyệt hồ sơ</a></li>
+            <li><a href="create.html"><i class="fas fa-angle-right"></i> Tạo học bổng mới</a></li>
+            <li><a href="#"><i class="fas fa-angle-right"></i> Câu hỏi thường gặp</a></li>
+            <li><a href="#"><i class="fas fa-angle-right"></i> Chính sách &amp; Quy định</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Các Loại Học Bổng</h3>
+          <ul>
+            <li><a href="#"><i class="fas fa-award"></i> Học bổng khuyến khích học tập</a></li>
+            <li><a href="#"><i class="fas fa-award"></i> Học bổng vượt khó</a></li>
+            <li><a href="#"><i class="fas fa-award"></i> Học bổng tài trợ doanh nghiệp</a></li>
+            <li><a href="#"><i class="fas fa-award"></i> Học bổng nghiên cứu khoa học</a></li>
+            <li><a href="#"><i class="fas fa-award"></i> Học bổng du học</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Thông Tin Liên Hệ</h3>
+          <ul class="footer-contact-info">
+            <li><i class="fas fa-map-marker-alt"></i> 48 Cao Thắng, Hải Châu, Đà Nẵng</li>
+            <li><i class="fas fa-phone-alt"></i> (0236) 3822 571</li>
+            <li><i class="fas fa-envelope"></i> scholarship@ute.udn.vn</li>
+            <li><i class="fas fa-clock"></i> Thứ Hai - Thứ Sáu: 8:00 - 17:00</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 UTE Scholarship Portal - Phát triển bởi <a href="#">Đại học Sư phạm Kỹ thuật Đà Nẵng</a></p>
+    </div>
+  </footer>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
   <script src="../scripts.js"></script>
   <!-- Modal Đăng nhập -->
@@ -115,10 +462,74 @@
         <div class="form-group">
           <label for="reset-email">Email của bạn</label>
           <input type="email" id="reset-email" name="reset-email" required placeholder="Nhập email">
-        </div>
-        <button type="submit" class="btn">Gửi</button>
+        </div>        <button type="submit" class="btn">Gửi</button>
       </form>
     </div>
   </div>
+  
+  <!-- Footer -->
+  <footer>
+    <!-- Floating Images -->
+    <img src="../images/floating-05.webp" alt="Graduate" class="floating-img floating-img-1">
+    <img src="../images/floating-06.webp" alt="Student" class="floating-img floating-img-2">
+    <img src="../images/floating-07.webp" alt="Certificate" class="floating-img floating-img-3">
+    <img src="../images/floating-08.webp" alt="Document" class="floating-img floating-img-4">
+    
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Về Chúng Tôi</h3>
+          <p>UTE Scholarship Portal là hệ thống quản lý học bổng hiện đại của Trường Đại học Sư phạm Kỹ thuật Đà Nẵng, giúp sinh viên dễ dàng tiếp cận và đăng ký các chương trình học bổng.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Liên Kết Nhanh</h3>
+          <ul>
+            <li><a href="login.html"><i class="fas fa-angle-right"></i> Đăng nhập</a></li>
+            <li><a href="register.html"><i class="fas fa-angle-right"></i> Đăng ký học bổng</a></li>
+            <li><a href="review.html"><i class="fas fa-angle-right"></i> Duyệt hồ sơ</a></li>
+            <li><a href="create.html"><i class="fas fa-angle-right"></i> Tạo học bổng mới</a></li>
+            <li><a href="#"><i class="fas fa-angle-right"></i> Câu hỏi thường gặp</a></li>
+            <li><a href="#"><i class="fas fa-angle-right"></i> Chính sách &amp; Quy định</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Các Loại Học Bổng</h3>
+          <ul>
+            <li><a href="#"><i class="fas fa-award"></i> Học bổng khuyến khích học tập</a></li>
+            <li><a href="#"><i class="fas fa-award"></i> Học bổng vượt khó</a></li>
+            <li><a href="#"><i class="fas fa-award"></i> Học bổng tài trợ doanh nghiệp</a></li>
+            <li><a href="#"><i class="fas fa-award"></i> Học bổng nghiên cứu khoa học</a></li>
+            <li><a href="#"><i class="fas fa-award"></i> Học bổng du học</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Thông Tin Liên Hệ</h3>
+          <ul class="footer-contact-info">
+            <li><i class="fas fa-map-marker-alt"></i> 48 Cao Thắng, Hải Châu, Đà Nẵng</li>
+            <li><i class="fas fa-phone-alt"></i> (0236) 3822 571</li>
+            <li><i class="fas fa-envelope"></i> scholarship@ute.udn.vn</li>
+            <li><i class="fas fa-clock"></i> Thứ Hai - Thứ Sáu: 8:00 - 17:00</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 UTE Scholarship Portal - Phát triển bởi <a href="#">Đại học Sư phạm Kỹ thuật Đà Nẵng</a></p>
+    </div>
+  </footer>
+
+  <!-- JS chung -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script src="../scripts.js"></script>
 </body>
 </html>
