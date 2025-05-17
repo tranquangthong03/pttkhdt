@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">  <title>Đăng ký học bổng UTE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar new-navbar">
+      <div class="navbar-left">
+        <a href="../index.html" class="navbar-logo-link">
+          <img src="../images/logo.jpg" alt="UTE Logo" class="navbar-logo">
+        </a>
+      </div>
+      <div class="navbar-center">
+        <a href="../index.html">Trang chủ</a>
+        <a href="#" id="login-link">Đăng nhập</a>
+        <a href="register.html">Đăng ký</a>
+        <a href="review.html">Duyệt hồ sơ</a>
+        <a href="create.html">Tạo học bổng</a>
+      </div>
+      <div class="navbar-right">
+        <span class="navbar-lang"><a href="#">Tiếng Việt</a> | <a href="#">English</a></span>
+      </div>
+    </nav>
+  </header>
+  
+  <section class="register-section">
+    <div class="register-container">
+      <!-- LEFT: Form -->
+      <div class="form-wrapper">
+        <h2>Đăng ký học bổng sinh viên UTE</h2>
+        <p class="subtitle">
+          Vui lòng điền đầy đủ thông tin để đăng ký xét duyệt học bổng. Hãy đảm bảo thông tin chính xác để tăng cơ hội nhận học bổng của bạn!
+        </p>        <form class="validate-form" action="#" method="POST" enctype="multipart/form-data">
+          <!-- Thông tin cá nhân -->
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="fullname">Họ và tên*</label>
+              <input type="text" id="fullname" name="fullname" required placeholder="Nhập họ và tên đầy đủ">
+            </div>
+            <div class="form-group">
+              <label for="student_id">Mã số sinh viên*</label>
+              <input type="text" id="student_id" name="student_id" required placeholder="VD: 123456789">
+            </div>
+          </div>
+          
+          <!-- Thông tin liên hệ -->
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="email">Email sinh viên*</label>
+              <input type="email" id="email" name="email" required placeholder="VD: email@students.ute.edu.vn">
+            </div>
+            <div class="form-group">
+              <label for="phone">Số điện thoại*</label>
+              <input type="text" id="phone" name="phone" required placeholder="Nhập số điện thoại">
+            </div>
+          </div>
+
+          <!-- Thông tin học tập -->
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="faculty">Khoa/Ngành*</label>
+              <select id="faculty" name="faculty" required>
+                <option value="">Chọn khoa/ngành</option>
+                <option value="cntt">Công nghệ thông tin</option>
+                <option value="ddt">Điện - Điện tử</option>
+                <option value="ck">Cơ khí</option>
+                <option value="xd">Xây dựng</option>
+                <option value="kt">Kinh tế</option>
+                <option value="nn">Ngoại ngữ</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="level">Bậc đào tạo*</label>
+              <select id="level" name="level" required>
+                <option value="">Chọn bậc đào tạo</option>
+                <option value="dh">Đại học</option>
+                <option value="ch">Cao học</option>
+                <option value="ts">Tiến sĩ</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="course">Khóa học*</label>
+              <select id="course" name="course" required>
+                <option value="">Chọn khóa học</option>
+                <option value="k18">K18 (2022-2026)</option>
+                <option value="k19">K19 (2023-2027)</option>
+                <option value="k20">K20 (2024-2028)</option>
+                <option value="k21">K21 (2025-2029)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="gpa">Điểm trung bình tích lũy*</label>
+              <input type="number" id="gpa" name="gpa" step="0.01" min="0" max="4" required placeholder="VD: 3.2">
+            </div>
+          </div>
+
+          <!-- Học bổng -->
+          <div class="form-group">
+            <label for="scholarship">Loại học bổng đăng ký*</label>
+            <select id="scholarship" name="scholarship" required>
+              <option value="">Chọn loại học bổng</option>
+              <option value="khuyenkhich">Học bổng khuyến khích học tập</option>
+              <option value="vuotkho">Học bổng vượt khó</option>
+              <option value="taitrợ">Học bổng tài trợ doanh nghiệp</option>
+              <option value="nghiencuu">Học bổng nghiên cứu khoa học</option>
+              <option value="chuyennganh">Học bổng chuyên ngành</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="activities">Hoạt động ngoại khóa (nếu có)</label>
+            <textarea id="activities" name="activities" rows="3" placeholder="Mô tả các hoạt động ngoại khóa, hoạt động xã hội, tình nguyện bạn đã tham gia"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="achievement">Thành tích nổi bật</label>
+            <textarea id="achievement" name="achievement" rows="3" placeholder="Liệt kê các thành tích học tập, nghiên cứu hoặc thành tích khác"></textarea>
+          </div>
+
+          <!-- Tài liệu đính kèm -->          <div class="form-group">
+            <label>Tài liệu đính kèm</label>
+            <div class="grid-2">
+              <div class="form-group">
+                <label for="transcript">Bảng điểm*</label>
+                <input type="file" id="transcript" name="transcript" required>
+                <small>Tải lên bảng điểm có xác nhận của Phòng Đào tạo (PDF)</small>
+              </div>
+              <div class="form-group">
+                <label for="cv">CV/Sơ yếu lý lịch*</label>
+                <input type="file" id="cv" name="cv" required>
+                <small>Tải lên CV hoặc sơ yếu lý lịch (PDF)</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="certificates">Chứng chỉ/Giấy khen (nếu có)</label>
+              <input type="file" id="certificates" name="certificates" multiple>
+              <small>Tải lên các chứng chỉ, giấy khen, bằng khen (PDF, JPG)</small>
+            </div>
+            <div class="form-group">
+              <label for="motivation_letter">Thư nguyện vọng*</label>
+              <input type="file" id="motivation_letter" name="motivation_letter" required>
+              <small>Thư trình bày nguyện vọng xin học bổng (PDF, tối đa 2 trang)</small>
+            </div>
+          </div>
+
+          <!-- Checkboxes -->
+          <div class="checkbox-group">
+            <label><input type="checkbox" required> Tôi xin cam đoan các thông tin cung cấp là chính xác và đầy đủ</label>
+            <label><input type="checkbox" required> Tôi đồng ý với <a href="#">Điều khoản</a> và <a href="#">Quy định xét duyệt học bổng</a> của UTE</label>
+            <label><input type="checkbox"> Tôi đồng ý nhận thông báo về kết quả xét duyệt qua email và SMS</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Nộp hồ sơ học bổng</button>
+        </form>
+      </div>
+
+      <!-- RIGHT: Image -->
+      <div class="image-wrapper">
+        <img src="../images/hinh2.jpg" alt="Sinh viên UTE nhận học bổng">
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script src="../scripts.js"></script>
+  <!-- Modal Đăng nhập -->
+  <div class="modal" id="login-modal">
+    <div class="modal-content">
+      <i class="fas fa-times close-modal"></i>
+      <h2>Đăng nhập</h2>
+      <img src="../images/logo.jpg" alt="UTE Logo" class="logo modal-logo">
+      
+      <form class="validate-form" action="#" method="POST">
+        <div class="form-group">
+          <label for="username">Tên đăng nhập / Email / Mã SV</label>
+          <input type="text" id="username" name="username" required placeholder="Nhập tên đăng nhập">
+        </div>
+        <div class="form-group">
+          <label for="password">Mật khẩu</label>
+          <input type="password" id="password" name="password" required placeholder="Nhập mật khẩu">
+          <i class="fas fa-eye toggle-password"></i>
+        </div>
+        <div class="remember-group">
+          <input type="checkbox" id="remember" name="remember">
+          <label for="remember">Nhớ mật khẩu</label>
+        </div>
+        <a href="#" id="forgot-password">Quên mật khẩu?</a>
+        <button type="submit" class="btn">Đăng nhập</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Modal Quên mật khẩu -->
+  <div class="modal" id="password-reset-modal">
+    <div class="modal-content">
+      <i class="fas fa-times close-modal"></i>
+      <h2>Quên mật khẩu</h2>
+      <form class="validate-form" action="#" method="POST">
+        <div class="form-group">
+          <label for="reset-email">Email của bạn</label>
+          <input type="email" id="reset-email" name="reset-email" required placeholder="Nhập email">
+        </div>
+        <button type="submit" class="btn">Gửi</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

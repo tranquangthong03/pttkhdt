@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Đăng nhập | Học bổng UTE</title>
+  <!-- Google Font & FontAwesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- CSS chung -->
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar new-navbar">
+      <div class="navbar-left">
+        <a href="../index.html" class="navbar-logo-link">
+          <img src="../images/logo.jpg" alt="UTE Logo" class="navbar-logo">
+        </a>
+      </div>      <div class="navbar-center">
+        <a href="../index.html">Trang chủ</a>
+        <a href="#" id="login-link">Đăng nhập</a>
+        <a href="register.html">Đăng ký</a>
+        <a href="review.html">Duyệt hồ sơ</a>
+        <a href="create.html">Tạo học bổng</a>
+      </div>
+      <div class="navbar-right">
+        <span class="navbar-lang"><a href="#">Tiếng Việt</a> | <a href="#">English</a></span>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <img src="https://reviewedu.net/wp-content/uploads/2021/08/dai-hoc-su-pham-ky-thuat-da-nang-ute-1.jpg"
+         alt="UTE Logo" class="logo">
+
+    <form class="validate-form" action="#" method="POST">
+      <div class="form-group">
+        <label for="username">Tên đăng nhập / Email / Mã SV</label>
+        <input type="text" id="username" name="username" required placeholder="Nhập tên đăng nhập">
+      </div>
+      <div class="form-group">
+        <label for="password">Mật khẩu</label>
+        <input type="password" id="password" name="password" required placeholder="Nhập mật khẩu">
+        <i class="fas fa-eye toggle-password"></i>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" id="remember" name="remember">
+        <label for="remember">Nhớ mật khẩu</label>
+      </div>
+      <a href="#" id="forgot-password">Quên mật khẩu?</a>
+      <button type="submit" class="btn">Đăng nhập</button>
+    </form>
+  </div>
+  <!-- Modal Quên mật khẩu -->
+  <div class="modal" id="password-reset-modal">
+    <div class="modal-content">
+      <i class="fas fa-times close-modal"></i>
+      <h2>Quên mật khẩu</h2>
+      <form class="validate-form" action="#" method="POST">
+        <div class="form-group">
+          <label for="reset-email">Email của bạn</label>
+          <input type="email" id="reset-email" name="reset-email" required placeholder="Nhập email">
+        </div>
+        <button type="submit" class="btn">Gửi</button>
+      </form>
+    </div>
+  </div>
+  <!-- JS chung -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script src="../scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Trang chủ | Hệ thống Học bổng UTE</title>
+  <!-- Font + Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- CSS chung -->
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar new-navbar">
+      <div class="navbar-left">
+        <a href="index.html" class="navbar-logo-link">
+          <img src="images/logo.jpg" alt="UTE Logo" class="navbar-logo">
+        </a>
+      </div>      <div class="navbar-center">
+        <a href="index.html">Trang chủ</a>
+        <a href="#" id="login-link">Đăng nhập</a>
+        <a href="./html/register.html">Đăng ký</a>
+        <a href="./html/review.html">Duyệt hồ sơ</a>
+        <a href="./html/create.html">Tạo học bổng</a>
+      </div>
+      <div class="navbar-right">
+        <span class="navbar-lang"><a href="#">Tiếng Việt</a> | <a href="#">English</a></span>
+        <a href="#" class="navbar-icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="navbar-icon"><i class="fab fa-youtube"></i></a>
+        <form class="navbar-search" onsubmit="return false;">
+          <input type="text" placeholder="Search...">
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Banner (Slideshow) -->
+  <section class="hero-slideshow">
+    <div class="slideshow-container">
+      <div class="slide fade">
+        <img src="images/hinh1.jpg" alt="UTE Slide 1">
+      </div>
+      <div class="slide fade">
+        <img src="images/hinh2.jpg" alt="UTE Slide 2">
+      </div>
+      <div class="slide fade">
+        <img src="images/hinh3.jpg" alt="UTE Slide 3">
+      </div>
+      <div class="hero-overlay">
+        <h1>UTE Scholarship Portal</h1>
+        <p>Quản lý học bổng sinh viên nhanh chóng – an toàn – minh bạch.</p>
+        <a href="./html/login.html" class="btn btn-hero">Bắt đầu ngay</a>
+      </div>
+    </div>
+  </section>
+  <!-- End Hero Banner -->
+
+  <!-- Stats Section (Quick Facts) -->
+  <section class="stats">
+    <div class="stat-card">
+      <h3>120+</h3>
+      <p>Học bổng đã tạo</p>
+    </div>
+    <div class="stat-card">
+      <h3>800+</h3>
+      <p>Hồ sơ đã nộp</p>
+    </div>
+    <div class="stat-card">
+      <h3>75%</h3>
+      <p>Tỷ lệ phê duyệt</p>
+    </div>
+    <div class="stat-card">
+      <h3>15</h3>
+      <p>Admin đang quản lý</p>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="features">
+    <div class="feature-card">
+      <i class="fas fa-sign-in-alt"></i>
+      <h3>Đăng nhập</h3>
+      <p>Sinh viên và admin truy cập hệ thống.</p>
+      <a href="./html/login.html" class="btn">Vào trang</a>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-file-alt"></i>
+      <h3>Đăng ký học bổng</h3>
+      <p>Nộp hồ sơ và tải tài liệu minh chứng.</p>
+      <a href="./html/register.html" class="btn">Vào trang</a>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-list"></i>
+      <h3>Duyệt hồ sơ</h3>
+      <p>Xem bảng danh sách và chi tiết hồ sơ.</p>
+      <a href="./html/review.html" class="btn">Vào trang</a>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-plus-circle"></i>
+      <h3>Tạo học bổng mới</h3>
+      <p>Admin thêm thông tin học bổng và hạn nộp.</p>
+      <a href="./html/create.html" class="btn">Vào trang</a>
+    </div>
+  </section>
+  <!-- News Section -->
+  <section class="news">
+    <h2>Tin mới nhất</h2>
+    <ul class="news-list">
+      <li class="news-item">
+        <time datetime="2025-05-10">10 May 2025</time>
+        <a href="#">Khai trương kỳ tuyển sinh học bổng đợt 2</a>
+      </li>
+      <li class="news-item">
+        <time datetime="2025-04-01">01 April 2025</time>
+        <a href="#">Hướng dẫn cách nộp hồ sơ online</a>
+      </li>
+      <li class="news-item">
+        <time datetime="2025-03-15">15 March 2025</time>
+        <a href="#">Thông báo kết quả học bổng đợt 1</a>
+      </li>
+    </ul>
+  </section>
+    <!-- Compatible Plugins Section -->
+  <section class="compatible-plugins">
+    <span class="plugin-badge">Plugins</span>
+    <h2>Các Tính Năng Tương Thích</h2>
+    
+    <div class="plugins-grid">
+      <div class="plugin-card">
+        <img src="images/feature-15.svg" alt="Đăng ký tài khoản">
+        <h3>Đăng ký tài khoản</h3>
+      </div>
+      
+      <div class="plugin-card">
+        <img src="images/feature-16.svg" alt="Nộp hồ sơ online">
+        <h3>Nộp hồ sơ online</h3>
+      </div>
+      
+      <div class="plugin-card">
+        <img src="images/feature-17.svg" alt="Quản lý học bổng">
+        <h3>Quản lý học bổng</h3>
+      </div>
+      
+      <div class="plugin-card">
+        <img src="images/feature-18.svg" alt="Theo dõi tiến độ">
+        <h3>Theo dõi tiến độ</h3>
+      </div>
+      
+      <div class="plugin-card">
+        <img src="images/feature-19.svg" alt="Xét duyệt tự động">
+        <h3>Xét duyệt tự động</h3>
+      </div>
+      
+      <div class="plugin-card">
+        <img src="images/feature-20.svg" alt="Thông báo kết quả">
+        <h3>Thông báo kết quả</h3>
+      </div>
+      
+      <div class="plugin-card">
+        <img src="images/feature-21.svg" alt="Báo cáo thống kê">
+        <h3>Báo cáo thống kê</h3>
+      </div>
+      
+      <div class="plugin-card">
+        <img src="images/feature-22.svg" alt="Tích hợp hệ thống">
+        <h3>Tích hợp hệ thống</h3>
+      </div>
+      
+      <div class="plugin-card">
+        <img src="images/lms.png" alt="Kết nối LMS">
+        <h3>Kết nối LMS</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Box Section -->
+  <section class="features-box-section">
+    <div class="features-container">
+      <div class="feature-box">
+        <div class="feature-icon">
+          <img src="images/13.svg" alt="Cơ sở dữ liệu toàn diện">
+        </div>
+        <div class="feature-content">
+          <h3>Cơ sở dữ liệu toàn diện</h3>
+          <p>Hệ thống UTE Scholarship Portal cung cấp cơ sở dữ liệu đầy đủ về tất cả các học bổng hiện có, điều kiện xét duyệt và thời hạn nộp hồ sơ, giúp sinh viên dễ dàng tra cứu thông tin bất kỳ lúc nào.</p>
+        </div>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">
+          <img src="images/14.svg" alt="Hỗ trợ chuyên nghiệp">
+        </div>
+        <div class="feature-content">
+          <h3>Hỗ trợ chuyên nghiệp</h3>
+          <p>Hệ thống cung cấp hỗ trợ trọn đời cho việc nộp hồ sơ học bổng, bao gồm hướng dẫn chuẩn bị hồ sơ, tư vấn trực tuyến và theo dõi tiến trình xét duyệt trong suốt quá trình đăng ký.</p>
+        </div>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">
+          <img src="images/15.svg" alt="Cập nhật thường xuyên">
+        </div>
+        <div class="feature-content">
+          <h3>Cập nhật thường xuyên</h3>
+          <p>Hệ thống liên tục được cập nhật với các chương trình học bổng mới, thay đổi về điều kiện xét tuyển và thông báo kết quả kịp thời qua email và tin nhắn SMS đến người dùng đã đăng ký.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="max-width:100%; display:flex; flex-wrap:wrap; justify-content:space-between; color:#aaa;">
+      <div style="flex:1 1 200px; margin:1rem;">
+        <h4 style="color:#fff;">Về chúng tôi</h4>
+        <p>Trường Đại học SPKT Đà Nẵng – UTE</p>
+        <p>Địa chỉ: 48 Cao Thắng, Hải Châu, Đà Nẵng</p>
+      </div>
+      <div style="flex:1 1 200px; margin:1rem;">
+        <h4 style="color:#fff;">Liên kết nhanh</h4>
+        <ul style="list-style:none; padding:0;">
+          <li><a href="./html/login.html">Đăng nhập</a></li>
+          <li><a href="./html/register.html">Đăng ký hồ sơ</a></li>
+          <li><a href="./html/review.html">Duyệt hồ sơ</a></li>
+          <li><a href="./html/create.html">Tạo học bổng</a></li>
+        </ul>
+      </div>
+      <div style="flex:1 1 200px; margin:1rem;">
+        <h4 style="color:#fff;">Theo dõi chúng tôi</h4>
+        <p>
+          <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
+          <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
+          <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+        </p>
+      </div>
+    </div>
+    <p style="text-align:center; padding:1rem 0; background:#222; color:#666; margin:0;">
+      &copy; 2025 UTE Scholarship Portal
+    </p>
+  </footer>
+
+  <!-- JS chung -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script src="scripts.js"></script>
+  <!-- Modal Đăng nhập -->
+  <div class="modal" id="login-modal">
+    <div class="modal-content">
+      <i class="fas fa-times close-modal"></i>
+      <h2>Đăng nhập</h2>
+      <img src="images/logo.jpg" alt="UTE Logo" class="logo modal-logo">
+      
+      <form class="validate-form" action="#" method="POST">
+        <div class="form-group">
+          <label for="username">Tên đăng nhập / Email / Mã SV</label>
+          <input type="text" id="username" name="username" required placeholder="Nhập tên đăng nhập">
+        </div>
+        <div class="form-group">
+          <label for="password">Mật khẩu</label>
+          <input type="password" id="password" name="password" required placeholder="Nhập mật khẩu">
+          <i class="fas fa-eye toggle-password"></i>
+        </div>
+        <div class="remember-group">
+          <input type="checkbox" id="remember" name="remember">
+          <label for="remember">Nhớ mật khẩu</label>
+        </div>
+        <a href="#" id="forgot-password">Quên mật khẩu?</a>
+        <button type="submit" class="btn">Đăng nhập</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Modal Quên mật khẩu -->
+  <div class="modal" id="password-reset-modal">
+    <div class="modal-content">
+      <i class="fas fa-times close-modal"></i>
+      <h2>Quên mật khẩu</h2>
+      <form class="validate-form" action="#" method="POST">
+        <div class="form-group">
+          <label for="reset-email">Email của bạn</label>
+          <input type="email" id="reset-email" name="reset-email" required placeholder="Nhập email">
+        </div>
+        <button type="submit" class="btn">Gửi</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

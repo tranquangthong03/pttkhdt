@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tạo học bổng mới | Học bổng UTE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar new-navbar">
+      <div class="navbar-left">
+        <a href="../index.html" class="navbar-logo-link">
+          <img src="../images/logo.jpg" alt="UTE Logo" class="navbar-logo">
+        </a>
+      </div>
+      <div class="navbar-center">
+        <a href="../index.html">Trang chủ</a>
+        <a href="#" id="login-link">Đăng nhập</a>
+        <a href="register.html">Đăng ký</a>
+        <a href="review.html">Duyệt hồ sơ</a>
+        <a href="create.html">Tạo học bổng</a>
+      </div>
+      <div class="navbar-right">
+        <span class="navbar-lang"><a href="#">Tiếng Việt</a> | <a href="#">English</a></span>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Tạo học bổng mới</h2>
+    <form class="validate-form" action="#" method="POST">
+      <div class="form-group">
+        <label for="scholarship-name">Tên học bổng</label>
+        <input type="text" id="scholarship-name" name="scholarship-name" required placeholder="Nhập tên học bổng">
+      </div>
+      <div class="form-group">
+        <label for="description">Mô tả</label>
+        <textarea id="description" name="description" rows="3" placeholder="Mô tả học bổng"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="amount">Giá trị học bổng</label>
+        <input type="number" id="amount" name="amount" required placeholder="Nhập giá trị">
+      </div>
+      <div class="form-group">
+        <label for="slots">Số suất</label>
+        <input type="number" id="slots" name="slots" required placeholder="Nhập số suất">
+      </div>
+      <div class="form-group">
+        <label for="target">Đối tượng áp dụng</label>
+        <input type="text" id="target" name="target" required placeholder="Nhập đối tượng">
+      </div>
+      <div class="form-group">
+        <label for="deadline">Hạn nộp</label>
+        <input type="date" id="deadline" name="deadline" required>
+      </div>
+      <!-- Thông tin sinh viên nếu cần -->
+      <div class="form-group">
+        <label for="student-id-create">Mã sinh viên</label>
+        <input type="text" id="student-id-create" name="student-id-create" placeholder="Nhập mã SV">
+      </div>
+      <div class="form-group">
+        <label for="email-create">Email</label>
+        <input type="email" id="email-create" name="email-create" placeholder="Nhập email">
+      </div>
+      <div class="form-group">
+        <label for="phone-create">Số điện thoại</label>
+        <input type="text" id="phone-create" name="phone-create" placeholder="Nhập số điện thoại">
+      </div>
+      <div class="form-group">
+        <label for="dob-create">Ngày sinh</label>
+        <input type="date" id="dob-create" name="dob-create">
+      </div>
+      <button type="submit" class="btn">Lưu học bổng</button>
+    </form>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script src="../scripts.js"></script>
+  <!-- Modal Đăng nhập -->
+  <div class="modal" id="login-modal">
+    <div class="modal-content">
+      <i class="fas fa-times close-modal"></i>
+      <h2>Đăng nhập</h2>
+      <img src="../images/logo.jpg" alt="UTE Logo" class="logo modal-logo">
+      
+      <form class="validate-form" action="#" method="POST">
+        <div class="form-group">
+          <label for="username">Tên đăng nhập / Email / Mã SV</label>
+          <input type="text" id="username" name="username" required placeholder="Nhập tên đăng nhập">
+        </div>
+        <div class="form-group">
+          <label for="password">Mật khẩu</label>
+          <input type="password" id="password" name="password" required placeholder="Nhập mật khẩu">
+          <i class="fas fa-eye toggle-password"></i>
+        </div>
+        <div class="remember-group">
+          <input type="checkbox" id="remember" name="remember">
+          <label for="remember">Nhớ mật khẩu</label>
+        </div>
+        <a href="#" id="forgot-password">Quên mật khẩu?</a>
+        <button type="submit" class="btn">Đăng nhập</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Modal Quên mật khẩu -->
+  <div class="modal" id="password-reset-modal">
+    <div class="modal-content">
+      <i class="fas fa-times close-modal"></i>
+      <h2>Quên mật khẩu</h2>
+      <form class="validate-form" action="#" method="POST">
+        <div class="form-group">
+          <label for="reset-email">Email của bạn</label>
+          <input type="email" id="reset-email" name="reset-email" required placeholder="Nhập email">
+        </div>
+        <button type="submit" class="btn">Gửi</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
