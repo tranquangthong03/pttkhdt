@@ -6,27 +6,54 @@
   <title>Đăng nhập | Học bổng UTE</title>
   <!-- Google Font & FontAwesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- CSS chung -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">  <!-- CSS chung -->
   <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../css/navbar-modern.css">
 </head>
-<body>
-  <!-- Navbar -->
+<body>  <!-- Navbar thiết kế mới -->
   <header>
-    <nav class="navbar new-navbar">
-      <div class="navbar-left">
-        <a href="../index.html" class="navbar-logo-link">
-          <img src="../images/logo.jpg" alt="UTE Logo" class="navbar-logo">
-        </a>
-      </div>      <div class="navbar-center">
-        <a href="../index.html">Trang chủ</a>
-        <a href="#" id="login-link">Đăng nhập</a>
-        <a href="register.html">Đăng ký</a>
-        <a href="review.html">Duyệt hồ sơ</a>
-        <a href="create.html">Tạo học bổng</a>
+    <nav class="modern-navbar">
+      <a href="../index.html" class="navbar-brand">
+        <img src="../images/logo.jpg" alt="UTE Logo">
+        <div class="navbar-brand-text">UTE Scholarship</div>
+      </a>
+      
+      <div class="navbar-links">
+        <div class="nav-item">
+          <a href="../index.html" class="nav-link">
+            <i class="fas fa-home"></i> Trang chủ
+          </a>
+        </div>
+        
+        <div class="nav-item">
+          <a href="register.html" class="nav-link">
+            <i class="fas fa-file-alt"></i> Đăng ký học bổng
+          </a>
+        </div>
+        
+        <div class="nav-item">
+          <a href="review.html" class="nav-link">
+            <i class="fas fa-clipboard-check"></i> Duyệt hồ sơ
+          </a>
+        </div>
+        
+        <div class="nav-item">
+          <a href="create.html" class="nav-link">
+            <i class="fas fa-plus-circle"></i> Tạo học bổng
+          </a>
+        </div>
       </div>
-      <div class="navbar-right">
-        <span class="navbar-lang"><a href="#">Tiếng Việt</a> | <a href="#">English</a></span>
+      
+      <div class="navbar-actions">
+        <button id="login-link" class="btn-login active">
+          <i class="fas fa-user"></i> Đăng nhập
+        </button>
+        
+        <div class="lang-selector">
+          <a href="#" class="active">VN</a>
+          <span>|</span>
+          <a href="#">EN</a>
+        </div>
       </div>
     </nav>
   </header>

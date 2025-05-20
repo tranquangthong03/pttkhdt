@@ -7,32 +7,48 @@
   <!-- Font + Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- CSS chung -->
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./css/navbar-modern.css">
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- Navbar thiết kế mới -->
   <header>
-    <nav class="navbar new-navbar">
-      <div class="navbar-left">
-        <a href="index.html" class="navbar-logo-link">
-          <img src="images/logo.jpg" alt="UTE Logo" class="navbar-logo">
-        </a>
-      </div>      <div class="navbar-center">
-        <a href="index.html">Trang chủ</a>
-        <a href="#" id="login-link">Đăng nhập</a>
-        <a href="./html/register.html">Đăng ký</a>
-        <a href="./html/review.html">Duyệt hồ sơ</a>
-        <a href="./html/create.html">Tạo học bổng</a>
+    <nav class="modern-navbar">
+      <a href="index.html" class="navbar-brand">
+        <img src="images/logo.jpg" alt="UTE Logo">
+        <div class="navbar-brand-text">UTE Scholarship</div>
+      </a>
+      <div class="navbar-links">
+        <div class="nav-item">
+          <a href="index.html" class="nav-link active">
+            <i class="fas fa-home"></i> Trang chủ
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="html/register.html" class="nav-link">
+            <i class="fas fa-file-alt"></i> Đăng ký học bổng
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="html/review.html" class="nav-link">
+            <i class="fas fa-clipboard-check"></i> Duyệt hồ sơ
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="html/create.html" class="nav-link">
+            <i class="fas fa-plus-circle"></i> Tạo học bổng
+          </a>
+        </div>
       </div>
-      <div class="navbar-right">
-        <span class="navbar-lang"><a href="#">Tiếng Việt</a> | <a href="#">English</a></span>
-        <a href="#" class="navbar-icon"><i class="fab fa-facebook"></i></a>
-        <a href="#" class="navbar-icon"><i class="fab fa-youtube"></i></a>
-        <form class="navbar-search" onsubmit="return false;">
-          <input type="text" placeholder="Search...">
-          <button type="submit"><i class="fas fa-search"></i></button>
-        </form>
+      <div class="navbar-actions">
+        <button id="login-link" class="btn-login">
+          <i class="fas fa-user"></i> Đăng nhập
+        </button>
+        <div class="lang-selector">
+          <a href="#" class="active">VN</a>
+          <span>|</span>
+          <a href="#">EN</a>
+        </div>
       </div>
     </nav>
   </header>
@@ -60,21 +76,31 @@
 
   <!-- Stats Section (Quick Facts) -->
   <section class="stats">
-    <div class="stat-card">
-      <h3>120+</h3>
-      <p>Học bổng đã tạo</p>
-    </div>
-    <div class="stat-card">
-      <h3>800+</h3>
-      <p>Hồ sơ đã nộp</p>
-    </div>
-    <div class="stat-card">
-      <h3>75%</h3>
-      <p>Tỷ lệ phê duyệt</p>
-    </div>
-    <div class="stat-card">
-      <h3>15</h3>
-      <p>Admin đang quản lý</p>
+    <div class="stats-cards" style="display: flex; justify-content: center; gap: 2rem; margin: 40px 0;">
+      <div class="stat-card" style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 32px 40px; min-width: 220px; display: flex; align-items: center; justify-content: center;">
+        <div class="stat-info" style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 2.2rem; font-weight: 600; color: #3686f7;">120+</span>
+          <span style="font-size: 1.1rem; color: #222; font-weight: 500;">Học bổng đã tạo</span>
+        </div>
+      </div>
+      <div class="stat-card" style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 32px 40px; min-width: 220px; display: flex; align-items: center; justify-content: center;">
+        <div class="stat-info" style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 2.2rem; font-weight: 600; color: #3686f7;">800+</span>
+          <span style="font-size: 1.1rem; color: #222; font-weight: 500;">Hồ sơ đã nộp</span>
+        </div>
+      </div>
+      <div class="stat-card" style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 32px 40px; min-width: 220px; display: flex; align-items: center; justify-content: center;">
+        <div class="stat-info" style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 2.2rem; font-weight: 600; color: #3686f7;">75%</span>
+          <span style="font-size: 1.1rem; color: #222; font-weight: 500;">Tỷ lệ phê duyệt</span>
+        </div>
+      </div>
+      <div class="stat-card" style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 32px 40px; min-width: 220px; display: flex; align-items: center; justify-content: center;">
+        <div class="stat-info" style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 2.2rem; font-weight: 600; color: #3686f7;">15</span>
+          <span style="font-size: 1.1rem; color: #222; font-weight: 500;">Admin đang quản lý</span>
+        </div>
+      </div>
     </div>
   </section>
 

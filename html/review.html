@@ -7,25 +7,200 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* Thiết kế mới cho navbar */
+    .modern-navbar {
+      display: flex;
+      align-items: center;
+      padding: 0.8rem 2rem;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .modern-navbar .navbar-brand {
+      display: flex;
+      align-items: center;
+      margin-right: 2rem;
+    }
+    
+    .modern-navbar .navbar-brand img {
+      height: 50px;
+      margin-right: 0.5rem;
+      border-radius: 5px;
+    }
+    
+    .modern-navbar .navbar-brand-text {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: var(--primary-color);
+    }
+    
+    .modern-navbar .navbar-links {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+    }
+    
+    .modern-navbar .nav-item {
+      margin: 0 0.8rem;
+      position: relative;
+    }
+    
+    .modern-navbar .nav-link {
+      color: #444;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.5rem 0.2rem;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    
+    .modern-navbar .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: -2px;
+      left: 0;
+      background-color: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+    
+    .modern-navbar .nav-link:hover:after,
+    .modern-navbar .nav-link.active:after {
+      width: 100%;
+    }
+    
+    .modern-navbar .nav-link:hover,
+    .modern-navbar .nav-link.active {
+      color: var(--primary-color);
+    }
+
+    .modern-navbar .navbar-actions {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+    
+    .modern-navbar .btn-login {
+      background-color: transparent;
+      color: var(--primary-color);
+      border: 1px solid var(--primary-color);
+      border-radius: 4px;
+      padding: 0.5rem 1.2rem;
+      font-weight: 500;
+      margin-right: 1rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .modern-navbar .btn-login:hover {
+      background-color: var(--primary-color);
+      color: #fff;
+    }
+    
+    .modern-navbar .lang-selector {
+      margin-left: 1rem;
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    
+    .modern-navbar .lang-selector a {
+      color: #666;
+      text-decoration: none;
+      padding: 0.3rem 0.5rem;
+      transition: all 0.2s;
+    }
+    
+    .modern-navbar .lang-selector a:hover {
+      color: var(--primary-color);
+    }
+    
+    .modern-navbar .lang-selector a.active {
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+    
+    .modern-navbar .nav-item.has-badge {
+      position: relative;
+    }
+    
+    .modern-navbar .notification-badge {
+      position: absolute;
+      top: -5px;
+      right: -8px;
+      background-color: #e74c3c;
+      color: white;
+      font-size: 0.7rem;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      .modern-navbar {
+        padding: 0.8rem 1rem;
+      }
+      
+      .modern-navbar .nav-item {
+        margin: 0 0.3rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- Navbar thiết kế mới -->
   <header>
-    <nav class="navbar new-navbar">
-      <div class="navbar-left">
-        <a href="../index.html" class="navbar-logo-link">
-          <img src="../images/logo.jpg" alt="UTE Logo" class="navbar-logo">
-        </a>
+    <nav class="modern-navbar">
+      <a href="../index.html" class="navbar-brand">
+        <img src="../images/logo.jpg" alt="UTE Logo">
+        <div class="navbar-brand-text">UTE Scholarship</div>
+      </a>
+      
+      <div class="navbar-links">
+        <div class="nav-item">
+          <a href="../index.html" class="nav-link">
+            <i class="fas fa-home"></i> Trang chủ
+          </a>
+        </div>
+        
+        <div class="nav-item">
+          <a href="register.html" class="nav-link">
+            <i class="fas fa-file-alt"></i> Đăng ký học bổng
+          </a>
+        </div>
+        
+        <div class="nav-item">
+          <a href="review.html" class="nav-link active">
+            <i class="fas fa-clipboard-check"></i> Duyệt hồ sơ
+          </a>
+        </div>
+        
+        <div class="nav-item">
+          <a href="create.html" class="nav-link">
+            <i class="fas fa-plus-circle"></i> Tạo học bổng
+          </a>
+        </div>
       </div>
-      <div class="navbar-center">
-        <a href="../index.html">Trang chủ</a>
-        <a href="#" id="login-link">Đăng nhập</a>
-        <a href="register.html">Đăng ký</a>
-        <a href="review.html">Duyệt hồ sơ</a>
-        <a href="create.html">Tạo học bổng</a>
-      </div>
-      <div class="navbar-right">
-        <span class="navbar-lang"><a href="#">Tiếng Việt</a> | <a href="#">English</a></span>
+      
+      <div class="navbar-actions">
+        <button id="login-link" class="btn-login">
+          <i class="fas fa-user"></i> Đăng nhập
+        </button>
+        
+        <div class="lang-selector">
+          <a href="#" class="active">VN</a>
+          <span>|</span>
+          <a href="#">EN</a>
+        </div>
       </div>
     </nav>
   </header>
